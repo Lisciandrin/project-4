@@ -1,0 +1,127 @@
+@import 'base/base';
+@import 'base/variables';
+@import 'base/mixins';
+
+html, body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+.header{
+    background-color: $main-color;
+    height: 100%;
+    padding-top: 150px;
+}
+
+.menu{
+    width: 100%;
+    height: calc(100% / 2.5);
+    display: flex;
+    justify-content: flex-start;
+    background-color: $menu-color;
+
+    &__item{
+        height: 100%;
+        width: calc(100% / 2 / 7);
+        background-color: $menu-item-color;
+        border: 0.5px solid $menu-color;
+        display: block;
+        position: relative;
+    }
+
+    &__image{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 40px;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+    }
+
+    &__slider{
+        position: absolute;
+        bottom: 0;
+        left: 100%;
+        right: 0;
+        overflow: hidden;
+        width: 0;
+        height: 100%;
+        transition: all 0.5s ease;
+        &_image{
+            @extend .menu__image;
+            width: 55px;
+        }
+    }
+
+    &__item_twitter:hover &__slider{
+        @include slider (#7fd7f4);
+    }
+
+    &__item_facebook:hover &__slider{
+        @include slider (#0c5693);
+    }
+
+    &__item_linkedin:hover &__slider{
+        @include slider (rgb(77, 150, 174));
+    }
+
+    &__item_instagram:hover &__slider{
+        @include slider (rgb(96, 174, 77));
+    }
+
+    &__item_youtube:hover &__slider{
+        @include slider (rgb(231, 37, 20));
+    }
+
+    &__item_tumblr:hover &__slider{
+        @include slider (rgb(31, 71, 85));
+    }
+
+    &__item_dribbble:hover &__slider{
+        @include slider (rgb(236, 92, 128));
+    }
+
+    &__inform{
+        height: 100%;
+        width: 0px;
+        background-color: #fff;
+        padding-top: 60px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        display:block;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        transition: all 0.5s ease-in;
+
+        &__title{
+            padding-left: 10px;
+            height: 25%;
+            width: 390px;
+            font-size: 50px;
+        }
+
+        &__text{
+            @extend .menu__inform__title;
+            padding-top: 20px;
+            font-size: 20px;
+            line-height: 30px;
+        }
+
+    }
+
+    &__item:hover + &__inform {
+        width: 400px;
+        display: block;
+    }
+
+    &__bord{
+        height: 100%;
+        width: 390px;
+        background-color: $menu-color;
+        display: flex;
+    }
+
+}
